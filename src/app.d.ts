@@ -8,6 +8,11 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+	type Dictionnary = Record<string, string>;
+	interface LocalFile {
+		default: Dictionnary;
+	}
+	type Dictionnaries = Record<string, Dictionnary>;
 }
 
 export {};
