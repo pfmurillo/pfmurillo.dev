@@ -1,4 +1,4 @@
-import type { Handle } from '@sveltejs/kit';
+import type { Handle, Reroute } from '@sveltejs/kit';
 import { availableLocales, defaultLocale } from '$lib/i18n';
 
 export const handle: Handle = async ({ resolve, event }) => {
@@ -11,4 +11,19 @@ export const handle: Handle = async ({ resolve, event }) => {
 	return await resolve(event, {
 		transformPageChunk: ({ html }) => html.replace('%locale%', locale)
 	});
+};
+
+const translated: Record<string, string> = {
+	'/en/about': '/en',
+	'/en/portfolio': '/en',
+	'/en/contact': '/en',
+	'/fr/about': '/fr',
+	'/fr/portfolio': '/fr',
+	'/fr/contact': '/fr'
+};
+
+export const reroute: Reroute = ({ url }) => {
+	if (url.pathname in translated) {
+		return translated[url.pathname];
+	}
 };
