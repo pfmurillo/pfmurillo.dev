@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+// ALL SASS VARIABLES ARE DEFINED BELOW 👇
+
+$linebreak: (
+	'mobile': 0px,
+	'tablet': 480px,
+	'desktop': 1080px
+);
+
+$root-margin-y: 8vw;
+$root-background-color: black;
+$root-font-family: 'Poppins', sans-serif;
+$root-font-weight: 300;
+$root-font-color: whitesmoke;
+$root-font-size: (
+	'mobile': 1.2rem,
+	'tablet': 1.3rem,
+	'desktop': 1.4rem
+);
+
+$h1-font-family: 'Kanit', sans-serif;
+$h1-font-weight: 900;
+$h1-font-size: (
+	'mobile': 14vw,
+	'tablet': 12vw,
+	'desktop': 9vw
+);

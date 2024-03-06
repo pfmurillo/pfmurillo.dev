@@ -1,3 +1,9 @@
 {
-    "version": "française"
+    "title.main": "Pierre Murillo",
+    "title.about": "À propos",
+    "title.works": "Projets",
+    "title.contact": "Contact",
+    "nav.about": "À propos",
+    "nav.works": "Projets",
+    "nav.contact": "Contact"
 }

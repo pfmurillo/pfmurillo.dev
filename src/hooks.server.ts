@@ -15,10 +15,10 @@ export const handle: Handle = async ({ resolve, event }) => {
 
 const translated: Record<string, string> = {
 	'/en/about': '/en',
-	'/en/portfolio': '/en',
+	'/en/works': '/en',
 	'/en/contact': '/en',
 	'/fr/about': '/fr',
-	'/fr/portfolio': '/fr',
+	'/fr/works': '/fr',
 	'/fr/contact': '/fr'
 };
 

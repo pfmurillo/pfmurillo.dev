@@ -1,0 +1,38 @@
+@use 'sass:map';
+@import 'variables.scss';
+
+:root {
+	font-size: map.get($root-font-size, 'mobile');
+	font-family: $root-font-family;
+	font-weight: $root-font-weight;
+	background-color: $root-background-color;
+	color: $root-font-color;
+}
+
+h1 {
+	font-size: map.get($h1-font-size, 'mobile');
+	font-family: $h1-font-family;
+	font-weight: $h1-font-weight;
+	margin-left: $root-margin-y;
+	text-transform: lowercase;
+}
+
+// tablet
+@media (min-width: map.get($linebreak, 'tablet')) {
+	:root {
+		font-size: map.get($root-font-size, 'tablet');
+	}
+	h1 {
+		font-size: map.get($h1-font-size, 'tablet');
+	}
+}
+
+// desktop
+@media (min-width: map.get($linebreak, 'desktop')) {
+	:root {
+		font-size: map.get($root-font-size, 'desktop');
+	}
+	h1 {
+		font-size: map.get($h1-font-size, 'desktop');
+	}
+}

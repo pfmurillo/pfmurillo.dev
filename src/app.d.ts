@@ -5,9 +5,13 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
-		// interface PageState {}
+		interface PageState {
+			title: string;
+			section: string;
+		}
 		// interface Platform {}
 	}
+
 	type Dictionnary = Record<string, string>;
 	interface LocalFile {
 		default: Dictionnary;
