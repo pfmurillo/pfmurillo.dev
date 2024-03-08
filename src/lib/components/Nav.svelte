@@ -5,69 +5,101 @@
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
 
-	const sections = ['about', 'works', 'contact'];
+	const sections = [
+		{
+			id: 'intro',
+			inNav: false
+		},
+		{
+			id: 'about',
+			inNav: true
+		},
+		{
+			id: 'works',
+			inNav: true
+		},
+		{
+			id: 'contact',
+			inNav: true
+		}
+	];
 
-	const getSectionByPath = () => {
-		let match: boolean | string = false;
+	let currentSectionId: string | undefined;
+	let previousSectionId: string | undefined;
+
+	const getSectionIdByPath = (path: string): string | undefined => {
+		let sectionId;
 		sections.forEach((section) => {
-			if ($page.url.pathname.endsWith(section)) {
-				match = section;
+			if (section.inNav && path.endsWith(section.id)) {
+				sectionId = section.id;
 			}
 		});
-		return match || sections[0];
+		return sectionId;
 	};
 
-	const scrollToSection = (sectionId: string, behavior: ScrollBehavior) => {
-		if (!browser) return;
-		const section = document.querySelector(`#${sectionId}`) as HTMLElement;
-		const top = section.getBoundingClientRect().top + document.documentElement.scrollTop;
-		scrollTo({
-			top,
-			behavior
-		});
-		previousSection = sectionId;
-	};
-
-	const watchCurrentSection = async (scrollPosition: number) => {
-		if (!browser) return;
-		const heightOffset = 45 / 100;
+	const getSectionIdByScrollY = (scrollY: number): string | undefined => {
+		let sectionId;
+		const windowOffest = window.innerHeight * 0.4;
 		const thresholds = sections.map((section) => {
-			let el = document.querySelector(`#${section}`) as HTMLElement;
-			return el.getBoundingClientRect().top + document.documentElement.scrollTop;
+			return getSectionTop(section.id) - windowOffest;
 		});
 		for (let i = thresholds.length - 1; i >= 0; i--) {
-			if (scrollPosition >= thresholds[i] - window.innerHeight * heightOffset) {
-				if (currentSection != sections[i]) {
-					pushState(`/${$currentLocale}/${sections[i]}`, {
-						title: $_(`title.${sections[i]}`),
-						section: sections[i]
-					});
+			if (scrollY >= thresholds[i]) {
+				if (currentSectionId != sections[i].id) {
+					sectionId = sections[i].id;
 				}
 				break;
 			}
 		}
+		return sectionId;
+	};
+
+	const getSectionTop = (id: string): number => {
+		const node = document.querySelector(`#${id}`) as HTMLElement;
+		return node.getBoundingClientRect().top + document.documentElement.scrollTop;
+	};
+
+	const scrollToSectionTop = (id: string) => {
+		scrollTo({
+			top: getSectionTop(id),
+			behavior: 'smooth'
+		});
+	};
+
+	const setSectionId = async () => {
+		let sectionId = getSectionIdByScrollY(window.scrollY);
+		if (sectionId && currentSectionId != sectionId) {
+			const section = sections.find((s) => s.id === sectionId);
+			let path = `/${$currentLocale}`;
+			if (section?.inNav) {
+				path += `/${sectionId}`;
+			}
+			previousSectionId = currentSectionId;
+			pushState(path, {
+				sectionId: sectionId
+			});
+		}
 	};
 
 	onMount(() => {
-		previousSection = currentSection;
-		scrollToSection(currentSection, 'smooth');
+		currentSectionId =
+			getSectionIdByPath($page.url.pathname) || getSectionIdByScrollY(window.scrollY);
+
 		window.addEventListener('scroll', async () => {
-			await watchCurrentSection(window.scrollY);
-		});
-		window.addEventListener('scrollend', () => {
-			if (previousSection != currentSection) {
-				scrollToSection(currentSection, 'smooth');
-			}
+			await setSectionId();
 		});
 	});
 
-	let currentSection: string;
-	let previousSection: string;
+	$: currentSectionId = $page.state.sectionId;
+
 	let pageTitle: string;
 	$: {
-		currentSection = $page.state.section || getSectionByPath();
-		pageTitle = $page.state.title || $_(`title.${getSectionByPath()}`);
-		pageTitle += ' - ' + $_('title.main');
+		pageTitle = '';
+		const section = sections.find((section) => section.id === currentSectionId);
+		if (section?.inNav) {
+			pageTitle += $_(`title.${currentSectionId}`) + ' - ';
+		}
+		pageTitle += $_('title.main');
 	}
 </script>
 
@@ -77,14 +109,14 @@
 
 <nav>
 	<ul>
-		{#each sections as section}
+		{#each sections.filter((section) => section.inNav) as section}
 			<li>
 				<a
-					href="/{$currentLocale}/{section}"
+					href="/{$currentLocale}/{section['id']}"
+					aria-current={currentSectionId === section['id'] ? 'page' : false}
 					on:click|preventDefault={() => {
-						scrollToSection(section, 'smooth');
-					}}
-					aria-current={currentSection === section ? 'page' : false}>{$_(`nav.${section}`)}</a
+						scrollToSectionTop(section['id']);
+					}}>{$_(`nav.${section['id']}`)}</a
 				>
 			</li>
 		{/each}
@@ -108,11 +140,11 @@
 	a {
 		text-transform: lowercase;
 		text-decoration: none;
-		color: transparent;
+		color: rgba($root-font-color, 0.4);
 		font-size: 1.8rem;
 		font-weight: bold;
-		-webkit-text-stroke: 1px #cfcfcf;
-		transition: all 270ms;
+		-webkit-text-stroke: 1px $root-font-color;
+		transition: all 300ms;
 	}
 	a[aria-current='page'] {
 		color: $root-font-color;
