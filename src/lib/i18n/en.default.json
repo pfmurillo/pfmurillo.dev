@@ -1,0 +1,21 @@
+{
+    "about.p1": "Web developer for some fifteen years in the cultural sector.",
+    "about.p2": "Recently certified as a Blockchain developer by <a href='https://www.alyra.fr' class='stabilo' target='_blank'>Alyra</a>.",
+    "about.p3": "My work is guided by attention to detail, respect for <strong>standards</strong> and good practice, particularly in terms of <strong>accessibility</strong>, to make the web more inclusive.",
+    "about.p4": "I integrate <strong>mobile-first</strong> interfaces using the latest technologies, including the <strong>SvelteKit</strong> framework in which I specialise.",
+    "contact.h2": "Contact",
+    "contact.p1": "I'm currently living in <strong>Paris, France</strong>, and I'm also available for any <strong>remote</strong> work.",
+    "contact.p2": "Don't hesitate to contact me by <a href='mailto:pierrefrederic.murillo@gmail.com' class='stabilo'>email</a> or call me on <strong>+33&nbsp;6&nbsp;50&nbsp;81&nbsp;91&nbsp;55</strong>.",
+    "contact.p3": "You can also reach me on <a href='https://github.com/pfmurillo' class='stabilo github' target='_blank'>/pfmurillo</a> and <a href='https://www.linkedin.com/in/pfmurillo' class='stabilo linkedin' target='_blank'>/pfmurillo</a>.",
+    "intro.h1": "I'm Pierre, a front dev",
+    "title.main": "Pierre Murillo",
+    "title.about": "About",
+    "title.works": "Works",
+    "title.contact": "Contact",
+    "nav.about": "About",
+    "nav.works": "Works",
+    "nav.contact": "Contact",
+    "works.shrks": "Pool competition in bars, available as a web application, on Google Play and Apple Store",
+    "works.daninos": "Commemoration of the work of artist and visual artist Christian Daninos on the 30th anniversary of his death",
+    "works.lhote": "Association for the promotion and preservation of the work and memory of the painter André Lhote"
+}

@@ -1,0 +1,21 @@
+{
+    "about.p1": "Développeur web depuis une quinzaine d'années dans le secteur culturel.",
+    "about.p2": "Récemment certifié développeur Blockchain par <a href='https://www.alyra.fr' class='stabilo' target='_blank'>Alyra</a>.",
+    "about.p3": "Mon travail est guidé par le souci du détail, le respect des <strong>standards</strong> et des bonnes pratiques, notamment en terme d'<strong>accessibilité</strong>, pour un web plus inclusif.",
+    "about.p4": "J'intègre des interfaces <strong>mobile first</strong> en utilisant les dernières technologies, dont le framework <strong>SvelteKit</strong> dans lequel je me suis spécialisé.",
+    "contact.h2": "Contact",
+    "contact.p1": "J'habite actuellement <strong>Paris</strong>, et je suis également disponible pour tout projet <strong>remote</strong>.",
+    "contact.p2": "N'hésitez pas à me contacter par <a href='mailto:pierrefrederic.murillo@gmail.com' class='stabilo'>email</a> ou m'appeler au <strong>+33&nbsp;6&nbsp;50&nbsp;81&nbsp;91&nbsp;55</strong>.",
+    "contact.p3": "Vous pouvez aussi me trouver sur <a href='https://github.com/pfmurillo' class='stabilo github' target='_blank'>/pfmurillo</a> et <a href='https://www.linkedin.com/in/pfmurillo' class='stabilo linkedin' target='_blank'>/pfmurillo</a>.",
+    "intro.h1": "Je suis Pierre, dev front",
+    "title.main": "Pierre Murillo",
+    "title.about": "À propos",
+    "title.works": "Projets",
+    "title.contact": "Contact",
+    "nav.about": "À propos",
+    "nav.works": "Projets",
+    "nav.contact": "Contact",
+    "works.shrks": "Tournois de billard dans les bars, disponible en application web, sur Google Play et Apple Store",
+    "works.daninos": "Commémoration de l'œuvre de l'artiste et plasticien Christian Daninos pour les 30 ans de sa disparition",
+    "works.lhote": "Association pour la promotion, la sauvegarde de l'œuvre et de la mémoire du peintre André Lhote"
+}
