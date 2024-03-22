@@ -4,7 +4,12 @@
 	import { currentLocale, _ } from '$lib/i18n';
 	import { page } from '$app/stores';
 
-	const sections = [
+	type Section = {
+		id: string;
+		inNav: boolean;
+	};
+
+	const sections: Section[] = [
 		{
 			id: 'intro',
 			inNav: false
@@ -96,10 +101,11 @@
 	$: currentSectionId = $page.state.sectionId;
 
 	let pageTitle: string;
+	let currentSection: undefined | Section;
 	$: {
 		pageTitle = '';
-		const section = sections.find((section) => section.id === currentSectionId);
-		if (section?.inNav) {
+		currentSection = sections.find((section) => section.id === currentSectionId);
+		if (currentSection?.inNav) {
 			pageTitle += $_(`title.${currentSectionId}`) + ' - ';
 		}
 		pageTitle += $_('title.main');
@@ -111,7 +117,7 @@
 </svelte:head>
 
 <nav>
-	<ul class:mini={scrollY > 620}>
+	<ul class:mini={currentSection?.inNav}>
 		{#each sections.filter((section) => section.inNav) as section}
 			<li>
 				<a
