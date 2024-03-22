@@ -120,7 +120,6 @@
 		justify-content: center;
 	}
 	#intro {
-		min-height: 100dvh;
 		background: $root-color-dark;
 		background-image: url('/about/me.svg');
 		background-repeat: no-repeat;
