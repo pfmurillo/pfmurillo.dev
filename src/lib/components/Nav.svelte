@@ -3,7 +3,6 @@
 	import { pushState } from '$app/navigation';
 	import { currentLocale, _ } from '$lib/i18n';
 	import { page } from '$app/stores';
-	import { browser } from '$app/environment';
 
 	const sections = [
 		{
@@ -24,6 +23,7 @@
 		}
 	];
 
+	let scrollY: number = 0;
 	let currentSectionId: string | undefined;
 	let previousSectionId: string | undefined;
 
@@ -69,12 +69,12 @@
 	const setSectionId = async () => {
 		let sectionId = getSectionIdByScrollY(window.scrollY);
 		if (sectionId && currentSectionId != sectionId) {
-			const section = sections.find((s) => s.id === sectionId);
+			previousSectionId = currentSectionId;
+			const section = sections.find((section) => section.id === sectionId);
 			let path = `/${$currentLocale}`;
 			if (section?.inNav) {
 				path += `/${sectionId}`;
 			}
-			previousSectionId = currentSectionId;
 			pushState(path, {
 				sectionId: sectionId
 			});
@@ -84,8 +84,11 @@
 	onMount(() => {
 		currentSectionId =
 			getSectionIdByPath($page.url.pathname) || getSectionIdByScrollY(window.scrollY);
-
+		if (currentSectionId) {
+			scrollToSectionTop(currentSectionId);
+		}
 		window.addEventListener('scroll', async () => {
+			scrollY = window.scrollY;
 			await setSectionId();
 		});
 	});
@@ -108,7 +111,7 @@
 </svelte:head>
 
 <nav>
-	<ul>
+	<ul class:mini={scrollY > 620}>
 		{#each sections.filter((section) => section.inNav) as section}
 			<li>
 				<a
@@ -137,16 +140,23 @@
 		flex-direction: column;
 		text-align: right;
 	}
+	ul.mini a {
+		font-size: 1.3rem;
+	}
 	a {
+		background-color: $root-color-darker;
 		text-transform: lowercase;
 		text-decoration: none;
-		color: rgba($root-font-color, 0.4);
-		font-size: 1.8rem;
-		font-weight: bold;
-		-webkit-text-stroke: 1px $root-font-color;
+		color: rgba($root-color-lighter, 0.08);
+		font-size: 1.6rem;
+		font-weight: 500;
+		-webkit-text-stroke: 1px $root-color-light;
 		transition: all 300ms;
+		line-height: 1.36;
+		padding: 0px 16px;
 	}
 	a[aria-current='page'] {
-		color: $root-font-color;
+		color: $root-color-lighter;
+		font-size: 1.7rem !important;
 	}
 </style>

@@ -7,5 +7,5 @@
 	import Nav from '$lib/components/Nav.svelte';
 </script>
 
-<Nav />
+<header><Nav /></header>
 <main><slot /></main>
