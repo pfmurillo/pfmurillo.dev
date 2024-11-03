@@ -1,6 +1,6 @@
 {
     "about.p1": "Web developer for some fifteen years in the cultural sector.",
-    "about.p2": "Recently certified as a Blockchain developer by <a href='https://www.alyra.fr' class='stabilo' target='_blank'>Alyra</a>.",
+    "about.p2": "Certified as a Blockchain developer by <a href='https://www.alyra.fr' class='stabilo' target='_blank'>Alyra</a>.",
     "about.p3": "My work is guided by attention to detail, respect for <strong>standards</strong> and good practice, particularly in terms of <strong>accessibility</strong>, to make the web more inclusive.",
     "about.p4": "I integrate <strong>mobile-first</strong> interfaces using the latest technologies, including the <strong>SvelteKit</strong> framework in which I specialise.",
     "contact.h2": "Contact",
@@ -15,6 +15,8 @@
     "nav.about": "About",
     "nav.works": "Works",
     "nav.contact": "Contact",
+    "works.designinverse": "Platform for a circular economy and re-use in culture, cinema and events",
+    "works.maisondodue": "A committed upholsterer's workshop where the restoration of an armchair and the creation of decorative elements are combined with strong ecological values",
     "works.shrks": "Pool competition in bars, available as a web application, on Google Play and Apple Store",
     "works.daninos": "Commemoration of the work of artist and visual artist Christian Daninos on the 30th anniversary of his death",
     "works.lhote": "Association for the promotion and preservation of the work and memory of the painter André Lhote"

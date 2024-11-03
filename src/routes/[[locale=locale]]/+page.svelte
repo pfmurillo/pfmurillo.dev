@@ -46,6 +46,18 @@
 	];
 	const works = [
 		{
+			id: 'designinverse',
+			title: 'Design Inversé',
+			url: 'https://design-inverse.com',
+			image: '/works/designinverse.png'
+		},
+		{
+			id: 'maisondodue',
+			title: 'Maison Dodue',
+			url: 'https://maisondodue.com',
+			image: '/works/maisondodue.png'
+		},
+		{
 			id: 'shrks',
 			title: 'Shrks',
 			url: 'https://web.shrks.app',
