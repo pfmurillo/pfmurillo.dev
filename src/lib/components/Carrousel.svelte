@@ -102,7 +102,7 @@
 		max-width: 90%;
 		max-height: 40vh;
 		border-radius: 8px;
-		box-shadow: 1px 1px 2px rgba($root-color-dark, 0.68);
+		box-shadow: 1px 1px 3px rgba($root-color-dark, 0.28);
 	}
 	@media (min-width: $root-breakpoint-desktop) {
 		img {
