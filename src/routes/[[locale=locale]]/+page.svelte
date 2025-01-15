@@ -46,34 +46,34 @@
 	];
 	const works = [
 		{
-			id: 'designinverse',
-			title: 'Design Inversé',
-			url: 'https://design-inverse.com',
-			image: '/works/designinverse.png'
-		},
-		{
 			id: 'maisondodue',
 			title: 'Maison Dodue',
 			url: 'https://maisondodue.com',
-			image: '/works/maisondodue.png'
+			image: '/works/maisondodue.webp'
+		},
+		{
+			id: 'designinverse',
+			title: 'Design Inversé',
+			url: 'https://design-inverse.com',
+			image: '/works/designinverse.webp'
 		},
 		{
 			id: 'shrks',
 			title: 'Shrks',
 			url: 'https://web.shrks.app',
-			image: '/works/shrks.png'
+			image: '/works/shrks.webp'
 		},
 		{
 			id: 'daninos',
 			title: 'Christian Daninos',
 			url: 'https://christiandaninos.com',
-			image: '/works/daninos.png'
+			image: '/works/daninos.webp'
 		},
 		{
 			id: 'lhote',
 			title: 'André Lhote',
 			url: 'https://andre-lhote.org',
-			image: '/works/lhote.png'
+			image: '/works/lhote.webp'
 		}
 	];
 </script>
