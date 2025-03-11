@@ -13,18 +13,18 @@
 	const skills = [
 		{
 			name: 'Svelte / SvelteKit',
-			rating: 8
-		},
+			rating: 9
+		} /* 
 		{
 			name: 'Vue',
 			rating: 7
-		},
+		}, */,
 		{
 			name: 'JavaScript / TypeScript',
 			rating: 9
 		},
 		{
-			name: 'CSS / SASS',
+			name: 'CSS / Tailwind',
 			rating: 8
 		},
 		{
@@ -32,12 +32,12 @@
 			rating: 9
 		},
 		{
-			name: 'PHP',
+			name: 'SQL / Prisma',
 			rating: 8
 		},
 		{
-			name: 'SQL',
-			rating: 7
+			name: 'PHP',
+			rating: 8
 		},
 		{
 			name: 'Solidity',
@@ -46,22 +46,16 @@
 	];
 	const works = [
 		{
+			id: 'sharks',
+			title: 'Sharks League',
+			url: 'https://getsharks.com',
+			image: '/works/sharks.webp'
+		},
+		{
 			id: 'maisondodue',
 			title: 'Maison Dodue',
 			url: 'https://maisondodue.com',
 			image: '/works/maisondodue.webp'
-		},
-		{
-			id: 'designinverse',
-			title: 'Design Inversé',
-			url: 'https://design-inverse.com',
-			image: '/works/designinverse.webp'
-		},
-		{
-			id: 'shrks',
-			title: 'Shrks',
-			url: 'https://web.shrks.app',
-			image: '/works/shrks.webp'
 		},
 		{
 			id: 'daninos',
